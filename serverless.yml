@@ -1,0 +1,26 @@
+useDotenv: true
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+  - serverless-plugin-typescript
+  - serverless-plugin-common-excludes
+  - serverless-plugin-include-dependencies
+
+service: ${env:APP_AWS_LAMBDA_SERVICE_NAME}
+
+frameworkVersion: "3"
+
+custom:
+  dotenv:
+    basePath: ./
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  api:
+    handler: src/app.handler
+    events:
+      - httpApi: "*"
