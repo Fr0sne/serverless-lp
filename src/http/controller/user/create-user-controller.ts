@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { createUserFactory } from '../../../factories/create-user-factory';
+import { createUserFactory } from '../../../factories/user/create-user-factory';
 import { z } from 'zod'
 import { BaseAppError } from '../../errors/base-app-error';
 
