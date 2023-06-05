@@ -14,7 +14,7 @@ app.use(NotFoundErrorHandler);
 
 app.use(GeneralAppErrorHandler)
 
-if (process.env.SERVER === 'express') {
+if (process.env.SERVER === 'express' && process.env.NODE_ENV !== 'test') {
 	app.listen(3000, () => console.log('🎉 Server running at port 3000'))
 }
 export const handler = serverless(app);
